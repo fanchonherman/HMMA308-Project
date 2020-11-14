@@ -11,7 +11,7 @@ import seaborn as sns
 import numpy as np
 from numpy import count_nonzero
 from sklearn.model_selection import train_test_split
-from sklearn.decomposition import TruncatedSVD
+# from sklearn.decomposition import TruncatedSVD
 from source import (f_omega, get_matrix_Y, get_matrix_U_V, altmin, explode)
 sns.set()
 
@@ -78,7 +78,7 @@ plt.xticks(ticks=np.arange(20), labels=('Adventure', 'Animation',
 		   'Musical', 'Documentary', 'IMAX', 'Western', 'Film-Noir',
 		   '(no genres listed)'), rotation=90)
 plt.xlabel('genres')
-plt.ylabel('nombre de films')
+plt.ylabel('number of movies')
 plt.savefig('genres.pdf')
 
 #######################
@@ -113,9 +113,9 @@ rat = collections.Counter(df_ratings['rating'])
 plt.bar(rat.keys(), rat.values(), width=0.7, color=['orange', 'violet', 'c',
         'lightcoral', 'm'])
 plt.xticks(ticks=[1, 2, 3, 4, 5],
-           labels=('1', '2', '3', '4',  '5'))
-plt.xlabel('note')
-plt.ylabel('nombre')
+           labels=('1', '2', '3', '4', '5'))
+plt.xlabel('ratings')
+plt.ylabel('number of ratings')
 plt.savefig('distrib_notes.pdf')
 
 # proportion
@@ -128,10 +128,9 @@ df_ratings.groupby(['rating']).size() / df_ratings['rating'].count()
 
 plt.figure()
 month_count['rating'].plot(style='ro-')
-plt.ylabel('Nombre de notes')
+plt.ylabel('Number of ratings')
 plt.xticks(np.arange(7+1), ('Sep', 'Oct', 'Nov', 'Dec', 'Janv 98', 'Feb',
            'Mar', 'Apr'))
-plt.title('Nombre de notes par mois')
 plt.savefig('notes_mois.pdf')
 
 ########################################################

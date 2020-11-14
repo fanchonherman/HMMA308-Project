@@ -210,7 +210,7 @@ University of Montpellier \\
     \item $n=943$ the number of users, 
     \item $p=1682$ the number of movies, 
     \item $y_{ij}$ correspond to a user rating $i$ of the movie $j$,
-    \item the zero values correspond to incomplete data.
+    \item the zero values correspond to unknown data.
 \end{itemize}
 \end{onlyenv}
 \end{frame}
@@ -219,7 +219,7 @@ University of Montpellier \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Sparsity of the Y matrix}
 \begin{align*}
-    \text{sparsity}(Y)&= 1 - \dfrac{\sum_{i,j} 1\!\!1_{(y_{ij} \neq 0)}}{n\times p} \approx 93.7 \%
+    \text{sparsity}(Y)&= 1 - \dfrac{\sum_{i,j} \mathds{1}_{(y_{ij} \neq 0)}}{n\times p} \approx 93.7 \%
 \end{align*}
 
 \begin{figure}[H]
@@ -268,7 +268,7 @@ University of Montpellier \\
   \begin{figure}[H]
 \centering
   \includegraphics[scale=0.4]{./images/svd.pdf}
-  \caption{Reduced SVD.}
+  \caption{Reduced SVD diagram.}
   \label{fig:svd}
 \end{figure} 
 \begin{align*}
@@ -282,17 +282,16 @@ University of Montpellier \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Loss function}
 \begin{onlyenv}<1>
-    Loss function used:
-    $$L=\sum_{i,j \in DF} (y_{ij} - \hat{y}_{ij})^2 + \lambda\left(\sum_i || u_i ||^2 + \sum_j || v_j ||^2\right)$$
+    Loss function used is:
+    $$L=\sum_{i,j \in DF} (y_{ij} - \langle u_i,v_j\rangle  )^2 \enspace,$$
 \end{onlyenv}
 \begin{onlyenv}<2->
     Loss function used:
-    $$L=\sum_{i,j \in DF} (y_{ij} - \hat{y}_{ij})^2 + \lambda\left(\sum_i || u_i ||^2 + \sum_j || v_j ||^2\right)$$
+    $$L=\sum_{i,j \in DF} (y_{ij} - \langle u_i,v_j\rangle  )^2 \enspace, $$
     where 
     \begin{itemize}
         \item $DF$ is the dataset, 
-        \item $\hat{y}_{ij}$ corresponds to the prediction of the rating $y_{ij}$,
-        \item quadratic objective function,
+        \item quadratic loss function,
         \item minimize the difference between ratings in our dataset and predictions made.
     \end{itemize}
 \end{onlyenv}
@@ -309,7 +308,6 @@ University of Montpellier \\
 \begin{frame}{Conclusion}
 \begin{itemize}
     \item Lot of missing data, 
-    \item predict the ratings that a user would give to a unseen movie,
     \item matrix factorisation to reduce dimension, 
     \item sparse matrix,
     \item reduced singular value decomposition.
