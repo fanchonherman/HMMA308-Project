@@ -87,8 +87,8 @@ University of Montpellier \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Introduction}
 \begin{itemize}
-    \item Predict ratings that a user will give to a film that he doesn't know, 
-    \item matrix factorization, 
+    \item Predict ratings that a user will give to a film that he doesn't know,
+    \item matrix factorization,
     \item MovieLens 100k.
 \end{itemize}
 \end{frame}
@@ -119,7 +119,7 @@ University of Montpellier \\
          2 & 22 & 377 & 1 & 878887116\\
          \hline
     \end{tabular}
-    \captionof{table}{Extraction of some data.} 
+    \captionof{table}{Extraction of some data.}
 \end{center}
 \begin{itemize}
     \item convert the timestamp column.
@@ -155,7 +155,7 @@ University of Montpellier \\
 \end{subfigure}
 \caption{Graphical representation of data.}
 \label{fig:notes_mois}
-\end{figure}  
+\end{figure}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -207,8 +207,8 @@ University of Montpellier \\
 0 & 5 & 0 & \dots & 0 & 0 & 0\\
 \end{bmatrix} \in \bbR^{n \times p}$$
 \begin{itemize}
-    \item $n=943$ the number of users, 
-    \item $p=1682$ the number of movies, 
+    \item $n=943$ the number of users,
+    \item $p=1682$ the number of movies,
     \item $y_{ij}$ correspond to a user rating $i$ of the movie $j$,
     \item the zero values correspond to unknown data.
 \end{itemize}
@@ -242,15 +242,15 @@ University of Montpellier \\
 \begin{frame}{Size reduction}
 \begin{onlyenv}<1>
 \begin{itemize}
-    \item decomposition of the $Y$ matrix, 
-    \item product of two sub-matrix, 
+    \item decomposition of the $Y$ matrix,
+    \item product of two sub-matrix,
     \item size reduction.
 \end{itemize}
 \end{onlyenv}
 \begin{onlyenv}<2->
 \begin{itemize}
-    \item decomposition of the $Y$ matrix, 
-    \item product of two sub-matrix, 
+    \item decomposition of the $Y$ matrix,
+    \item product of two sub-matrix,
     \item size reduction.
 \end{itemize}
     \begin{figure}[H]
@@ -270,7 +270,7 @@ University of Montpellier \\
   \includegraphics[scale=0.4]{./images/svd.pdf}
   \caption{Reduced SVD diagram.}
   \label{fig:svd}
-\end{figure} 
+\end{figure}
 \begin{align*}
     \longrightarrow \text{ }& n=943,\\
     \longrightarrow \text{ }& p=1682,\\
@@ -288,9 +288,9 @@ University of Montpellier \\
 \begin{onlyenv}<2->
     Loss function used:
     $$L=\sum_{i,j \in DF} (y_{ij} - \langle u_i,v_j\rangle  )^2 \enspace, $$
-    where 
+    where
     \begin{itemize}
-        \item $DF$ is the dataset, 
+        \item $DF$ is the dataset,
         \item quadratic loss function,
         \item minimize the difference between ratings in our dataset and predictions made.
     \end{itemize}
@@ -307,8 +307,8 @@ University of Montpellier \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Conclusion}
 \begin{itemize}
-    \item Lot of missing data, 
-    \item matrix factorisation to reduce dimension, 
+    \item Lot of missing data,
+    \item matrix factorisation to reduce dimension,
     \item sparse matrix,
     \item reduced singular value decomposition.
 \end{itemize}
