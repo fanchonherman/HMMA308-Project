@@ -40,8 +40,8 @@ def f_omega(U, V):
 
 def altmin(U_0, T):
     U, V = get_matrix_U_V(df_ratings)
-    for t in np.arange(1, T+1):
-        V[:, t] = np.argmin(f_omega(U[:, t-1], V))
+    for t in np.arange(1, T + 1):
+        V[:, t] = np.argmin(f_omega(U[:, t - 1], V))
         U[:, t] = np.argmin(f_omega(U, V[:, t]))
     return(U[:, T], V[:, T])
 
@@ -51,9 +51,7 @@ def altmin(U_0, T):
 
 def explode(df, lst_cols, fill_value='', preserve_index=False):
     # make sure `lst_cols` is list-alike
-    if (lst_cols is not None
-        and len(lst_cols) > 0
-        and not isinstance(lst_cols, (list, tuple, np.ndarray, pd.Series))):
+    if (lst_cols is not None and len(lst_cols) > 0 and not isinstance(lst_cols, (list, tuple, np.ndarray, pd.Series))):
         lst_cols = [lst_cols]
     # all columns except `lst_cols`
     idx_cols = df.columns.difference(lst_cols)
@@ -62,16 +60,12 @@ def explode(df, lst_cols, fill_value='', preserve_index=False):
     # preserve original index values
     idx = np.repeat(df.index.values, lens)
     # create "exploded" DF
-    res = (pd.DataFrame({
-                col:np.repeat(df[col].values, lens)
-                for col in idx_cols},
-                index=idx)
-             .assign(**{col:np.concatenate(df.loc[lens>0, col].values)
-                            for col in lst_cols}))
+    res = pd.DataFrame({col: np.repeat(df[col].values, lens) for col in idx_cols}, index=idx).assign(**{col: np.concatenate(df.loc[lens>0, col].values) for col in lst_cols})
+
     # append those rows that have empty lists
     if (lens == 0).any():
         # at least one list in cells is empty
-        res = (res.append(df.loc[lens==0, idx_cols], sort=False)
+        res = (res.append(df.loc[lens == 0, idx_cols], sort=False)
                   .fillna(fill_value))
     # revert the original index order
     res = res.sort_index()
@@ -79,5 +73,3 @@ def explode(df, lst_cols, fill_value='', preserve_index=False):
     if not preserve_index:
         res = res.reset_index(drop=True)
     return res
-	
-		
