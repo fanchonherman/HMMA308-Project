@@ -72,11 +72,13 @@ df_movies.head()
 plt.figure(figsize=(10, 8))
 rat = collections.Counter(df_movies['genres'])
 plt.bar(rat.keys(), rat.values(), width=0.7)
-plt.xticks(ticks=np.arange(20), labels=('Adventure', 'Animation',
-           'Children', 'Comedy', 'Fantasy', 'Romance', 'Drama', 'Action',
-		   'Crime', 'Thriller', 'Horror', 'Mystery', 'Sci-Fi', 'War',
-		   'Musical', 'Documentary', 'IMAX', 'Western', 'Film-Noir',
-		   '(no genres listed)'), rotation=90)
+plt.xticks(ticks=np.arange(20),
+           labels=('Adventure', 'Animation',
+                   'Children', 'Comedy', 'Fantasy', 'Romance', 'Drama',
+                   'Action', 'Crime', 'Thriller', 'Horror', 'Mystery',
+                   'Sci-Fi', 'War', 'Musical', 'Documentary', 'IMAX',
+                   'Western', 'Film-Noir', '(no genres listed)'),
+           rotation=90)
 plt.xlabel('genres')
 plt.ylabel('number of movies')
 plt.savefig('genres.pdf')
@@ -129,7 +131,7 @@ df_ratings.groupby(['rating']).size() / df_ratings['rating'].count()
 plt.figure()
 month_count['rating'].plot(style='ro-')
 plt.ylabel('Number of ratings')
-plt.xticks(np.arange(7+1), ('Sep', 'Oct', 'Nov', 'Dec', 'Janv 98', 'Feb',
+plt.xticks(np.arange(7 + 1), ('Sep', 'Oct', 'Nov', 'Dec', 'Janv 98', 'Feb',
            'Mar', 'Apr'))
 plt.savefig('notes_mois.pdf')
 
@@ -149,7 +151,7 @@ print(Y_matrix)
 n_users = Y_matrix.shape[0]
 n_movies = Y_matrix.shape[1]
 sparsity = 1.0 - count_nonzero(Y_matrix) / Y_matrix.size
-print(sparsity*100)
+print(sparsity * 100)
 
 plt.figure()
 plt.spy(Y_matrix, precision=0.1)

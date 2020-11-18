@@ -26,23 +26,23 @@
 
 
 \begin{document}
-\begin{titlepage} 
+\begin{titlepage}
 	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
-	
+
 	\center
-	
+
 	\textsc{\LARGE University of Montpellier}\\[1.5cm]
-	
-	\textsc{\Large Master 2 Biostatistics }\\[0.5cm] 
-	
-	\textsc{\large HMMA$308$ Project}\\[0.5cm] 
+
+	\textsc{\Large Master 2 Biostatistics }\\[0.5cm]
+
+	\textsc{\large HMMA$308$ Project}\\[0.5cm]
 
 	\HRule\\[0.4cm]
-	
-	{\huge\bfseries Recommendation system}\\[0.4cm] 
-	
+
+	{\huge\bfseries Recommendation system}\\[0.4cm]
+
 	\HRule\\[1.5cm]
-	
+
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushleft}
 			\large
@@ -58,21 +58,21 @@
 			Joseph Salmon\\
 		\end{flushright}
 	\end{minipage}
-		\vfill 
-	
-	{\large 2020-2021} 
+		\vfill
+
+	{\large 2020-2021}
 
 		\vfill\vfill
-		
+
 \centering
 \includegraphics[width=0.2\textwidth]{./images/Logo}
 
 
-	
-	 
+
+
 	%----------------------------------------------------------------------------------------
-	
-	\vfill 
+
+	\vfill
 \end{titlepage}
 
 \tableofcontents
@@ -107,7 +107,7 @@ The MovieLens (100k) database was collected by the GroupLens research project at
          3 & 244 & 51 & 2 & 880606923\\
          \hline
     \end{tabular}
-    \captionof{table}{Extraction of some data.} 
+    \captionof{table}{Extraction of some data.}
 \end{center}
 
 In view of the dataset, we can make some visualizations in order to see more clearly.
@@ -189,7 +189,7 @@ $$Y \approx U\times V^{\top}.$$.
   \includegraphics[scale=0.4]{./images/facto.pdf}
   \caption{$Y$-matrix factorisation.}
   \label{fig:facto}
-\end{figure}    
+\end{figure}
 
 In order to know the $U$ and $V$ matrix, we use the reduced singular value decomposition. Thus, we have:
 
@@ -198,7 +198,7 @@ In order to know the $U$ and $V$ matrix, we use the reduced singular value decom
   \includegraphics[scale=0.5]{./images/svd.pdf}
   \caption{Reduced SVD diagram.}
   \label{fig:svd}
-\end{figure} 
+\end{figure}
 
 with $n=943$, $k=6$ and $p=1682$.
 
